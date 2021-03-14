@@ -67,6 +67,8 @@ def remove_lv(lv_name) :
 def extend_lv(lv_name,size) :
     out=subprocess.run("lvextend {} --size {}".format(lv_name,size),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,input=b'y\n')
     if out.returncode ==0 :
+        subprocess.run("e2fsck -f {}".format(lv_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run("resize2fs lv_name",shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         print("LV extended Successfully!!!")
     else :
         print("OOPS !!Some error occured")
@@ -74,6 +76,8 @@ def extend_lv(lv_name,size) :
 
 
 def reduce_lv(lv_name,size) :
+    subprocess.run("e2fsck -f {}".format(lv_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    subprocess.run("resize2fs {} {}".format(lv_name,size),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     out=subprocess.run("lvreduce {} --size {}".format(lv_name,size),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,input=b'y\n')
     if out.returncode ==0 :
         print("LV reduced  Successfully!!!")
