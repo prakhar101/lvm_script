@@ -1,6 +1,5 @@
 import os
 from  functionality import *
-import functionality
 while True:
  os.system("clear")
  print("--------------------------------------------WelCome To Menu Drive Program of LVM-----------------------------------------------------------------")
@@ -16,7 +15,6 @@ while True:
 9. For Reducing LV
 10.For Deleting LV
 11.For Exit ''')
-
  val=int(input("Enter ur choice-: "))
  if val ==1 :
      pv_name=input("Enter the name of the partition(provide absolute path eg. /dev/sda -: ")
@@ -71,3 +69,4 @@ while True:
  else :
      print("Wrong Input..:( ")
  input("Press Any Key To Continue ...")
+ os.system("clear")
