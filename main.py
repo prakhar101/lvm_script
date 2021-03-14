@@ -1,4 +1,8 @@
-while True: 
+import os
+from  functionality import *
+import functionality
+while True:
+ os.system("clear")
  print("--------------------------------------------WelCome To Menu Drive Program of LVM-----------------------------------------------------------------")
  print("Press the Number Correponding to the choice")
  print('''1. For Creating PV
@@ -10,7 +14,8 @@ while True:
 7. For Creating LV
 8. For Extending LV
 9. For Reducing LV
-10.For Deleting LV''')
+10.For Deleting LV
+11.For Exit ''')
 
  val=int(input("Enter ur choice-: "))
  if val ==1 :
@@ -44,19 +49,25 @@ while True:
  elif val==7 :
      vg_name=input("Enter the name of vg from which u want to take volume for lvm -: ")
      lv_name=input("Enter the name u want to give to the lvm -: ")
-     size=int(input("Enter the size of lvm -: "))
+     size=input("Enter the size of lvm -: ")
      create_lv(vg_name,lv_name,size)
 
  elif val==8:
      lv_name=input("Enter the name of LVM (in absolute path like  /dev/<vg-name>/<lvm-name> ")
-     size=int(input("Enter the final size u want to provide to LVM"))
+     size=input("Enter the final size u want to provide to LVM")
      extend_lv(lv_name,size)
 
  elif val==9:
      lv_name=input("Enter the name of LVM (in absolute path like  /dev/<vg-name>/<lvm-name>) ")
-     size=int(input("Enter the final size u want to provide to LVM"))
+     size=input("Enter the final size u want to provide to LVM")
      reduce_lv(lv_name,size)
  
  elif val ==10 :
      lv_name=input("Enter the name of the LVM (in absolute path like  /dev/<vg-name>/<lvm-name>) -: ")
      remove_lv(lv_name)
+
+ elif val==11:
+     exit()
+ else :
+     print("Wrong Input..:( ")
+ input("Press Any Key To Continue ...")

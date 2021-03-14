@@ -1,7 +1,7 @@
 import os
 import subprocess
 def add_pv(part_name) :
-    out=subprocess.run("pvcreate {} ".format(part_name),shell=True,stdout=subprocess.PIPE,input=b'y\n')
+    out=subprocess.run("pvcreate {} ".format(part_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,input=b'y\n')
     if out.returncode == 0:
         print("PV Created Sucessfully!!!")
     else :
@@ -10,7 +10,7 @@ def add_pv(part_name) :
 
 
 def remove_pv(part_name) :
-    out=subprocess.run("pvremove {} ".format(part_name),shell=True,stdout=subprocess.PIPE,input=b'y\n')
+    out=subprocess.run("pvremove {} ".format(part_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,input=b'y\n')
     if out.returncode == 0:
         print("PV removed Sucessfully!!!")
     else :
@@ -19,7 +19,7 @@ def remove_pv(part_name) :
 
 
 def create_vg(vg_name,pv_name) :
-    out=subprocess.run("vgcreate {0} {1}".format(vg_name,pv_name))
+    out=subprocess.run("vgcreate {0} {1}".format(vg_name,pv_name),shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     if out.returncode==0 :
         print("VG created successfully")
     else :
