@@ -52,12 +52,12 @@ while True:
 
  elif val==8:
      lv_name=input("Enter the name of LVM (in absolute path like  /dev/<vg-name>/<lvm-name> ")
-     size=input("Enter the final size u want to provide to LVM")
+     size=input("Enter the final size u want to provide to LVM -: ")
      extend_lv(lv_name,size)
 
  elif val==9:
      lv_name=input("Enter the name of LVM (in absolute path like  /dev/<vg-name>/<lvm-name>) ")
-     size=input("Enter the final size u want to provide to LVM")
+     size=input("Enter the final size u want to provide to LVM -: ")
      reduce_lv(lv_name,size)
  
  elif val ==10 :
